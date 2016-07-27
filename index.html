@@ -34,7 +34,7 @@
         </nav>
     </header>
 
-    <div class="container">
+    <div class="container" ng-controller="mainController">
         <div class="row">
              <div class="col-md-12">
                  <h1>Search Results</h1>
@@ -43,21 +43,12 @@
                      <p>Detail</p>
                      <a href="#">More detail...</a>
                  </div>
-                 <div>
-                     <h2>Title result</h2>
-                     <p>Detail</p>
-                     <a href="#">More detail...</a>
-                 </div>
-                 <div>
-                     <h2>Title result</h2>
-                     <p>Detail</p>
-                     <a href="#">More detail...</a>
-                 </div>
-
-                <search-result result-link-href="#"></search-result>  
-
              </div>
-        </div>         
+        </div> 
+
+        <div class="list-group">
+            <search-result person-name="{{ person.name }}" person-address="{{ person.address }}" ></search-result>
+        </div>        
     </div>
 
     

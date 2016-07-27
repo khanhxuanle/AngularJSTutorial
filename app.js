@@ -11,6 +11,19 @@ myApp.service('nameService', function(){
     };
 });
 
+myApp.directive('searchResult', function() {
+     /* body... */ 
+     return {
+        restrict: 'AECM',
+        templateUrl: 'directives/searchResult.html',
+        replace: true,
+        scope: {
+            personName: '@',
+            personAddress: '@'
+        }
+     }
+});
+
 
 myApp.controller('mainController', ['$scope', '$log', 'nameService', function($scope, $log, nameService) {
 
@@ -27,6 +40,11 @@ myApp.controller('mainController', ['$scope', '$log', 'nameService', function($s
     	$log.log(nameService.name);
     	$log.log(nameService.nameLength());
     };
+
+    $scope.person = {
+        name: 'Khanh Le',
+        address: 'Ninh Binh'
+    }
 
 
 }]);
