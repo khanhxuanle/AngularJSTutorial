@@ -19,9 +19,13 @@ myApp.directive('searchResult', function() {
         replace: true,
         scope: {
             personName: '@',
-            personAddress: '@'
-        }
-     }
+            personAddress: '@',
+            personObject: '=',
+            formattedAddressFunction: '&'
+        },
+        transclude: true
+        
+     };
 });
 
 
@@ -41,10 +45,30 @@ myApp.controller('mainController', ['$scope', '$log', 'nameService', function($s
     	$log.log(nameService.nameLength());
     };
 
-    $scope.person = {
+    $scope.people = [
+        {
         name: 'Khanh Le',
-        address: 'Ninh Binh'
-    }
+        address: 'Ha Noi',
+        city: 'Ninh Binh',
+        country: 'Viet Nam'
+        },
+        {
+        name: 'Phu Le',
+        address: 'Ninh Binh',
+        city: 'Ninh Binh',
+        country: 'Viet Nam'
+        },
+        {
+        name: 'Phong Le',
+        address: 'Ha Noi',
+        city: 'Ninh Binh',
+        country: 'Viet Nam'
+        },
+    ];
+    
+    $scope.formattedAddress = function(person) {
+        return person.address + ', ' + person.city + ', ' + person.country;
+    };
 
 
 }]);
